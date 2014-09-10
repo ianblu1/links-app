@@ -1,0 +1,11 @@
+{{text}}
+<div><a class="btn btn-primary" ng-click="open()" >Add New Bookmark</a></div><br>
+Filter by tag: <input ng-model="search.tags">
+<div><br></div>
+<!-- <ul class="bookmarks"> -->
+  <div ng-repeat="bookmark in bookmarks | filter:search">
+    <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a> |
+    <a href="#/links/{{bookmark.slug}}">Edit tags</a>
+    
+  </div>
+<!-- </ul> -->

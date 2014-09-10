@@ -1,0 +1,12 @@
+{{text}}
+<form class="simple-form">
+  url:     <input type='text' size=50 ng-model='bookmark.url'/><br />
+  title: <input type='text' size=50 ng-model='bookmark.title'/><br />
+  tags:<input type='text' size=75 ng-model='bookmark.tags'/><br />
+  <br />
+  <button class="btn btn-primary" ng-click="addBookmark(bookmark)">SAVE</button>
+</form>
+<br>
+<pre>{{bookmark.url}}</pre>
+<pre>{{bookmark.title}}</pre>
+<pre>{{bookmark.tags}}</pre>

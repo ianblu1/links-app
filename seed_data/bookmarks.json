@@ -1,0 +1,181 @@
+[
+  {
+    "url": "http://blog.luisrei.com/articles/flaskrest.html",
+    "title": "Luis Rei: Building a RESTful API with Flask",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "api"
+    ]
+  },
+  {
+    "url": "http://blog.luisrei.com/articles/rest.html",
+    "title": "Luis Rei: Designing RESTful APIs",
+    "tags": [
+      "blog",
+      "dev",
+      "api"
+    ]
+  },
+  {
+    "url": "http://www.shea.io/lightweight-python-apps-with-flask-twitter-bootstrap-and-heroku/",
+    "title": "Ryan Shea: Flask, Bootstrap, and Heroku",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "heroku"
+    ]
+  },
+  {
+    "url": "http://mattupstate.com/python/2013/06/26/how-i-structure-my-flask-applications.html",
+    "title": "Matt Wright: Structuring Flask Applications",
+    "tags": [
+      "blog",
+      "dev",
+      "flask"
+    ]
+  },
+  {
+    "url": "http://mattupstate.com/python/databases/2012/11/15/database-migrations-with-alembic-sqlalchemy-and-flask.html",
+    "title": "Matt Wright: Database Migrations in Flask with Alembic",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "alembic"
+    ]
+  },
+  {
+    "url": "http://docs.mongodb.org/ecosystem/tutorial/write-a-tumblelog-application-with-flask-mongoengine/",
+    "title": "MongoDB: Blog app with Flask and MongoDB",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "mongodb"
+    ]
+  },
+  {
+    "url": "http://f.souza.cc/2010/08/flying-with-flask-on-google-app-engine.html",
+    "title": "Fancisco Souza: Flask and Google App Engine",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "app-engine"
+    ]
+  },
+  {
+    "url": "http://blog.pangyanhan.com/posts/2013-08-27-ngtut.html",
+    "title": "Yan Han: Flask and AngularJS",
+    "tags": [
+      "blog",
+      "dev",
+      "flask",
+      "angular"
+    ]
+  },
+  {
+    "url" : "http://fargo.io/",
+    "title" : "fargo",
+    "tags": [
+      "apps",
+      "productivity"
+    ]
+  },
+   {
+    "url" : "https://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/",
+    "title" : "Art And Logic: AngularJS Best Practices",
+    "tags": [
+      "blog",
+      "dev",
+      "angular"
+    ]
+  },
+  {
+    "url" : "http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/",
+    "title" : "Tyler Mcginnis: Angular factory vs service vs provider",
+    "tags": [
+      "blog",
+      "dev",
+      "angular"
+    ]
+  },
+  {
+    "url" : "http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/",
+    "title" : "Todd Motto: Angular in One Day",
+    "tags": [
+      "blog",
+      "dev",
+      "angular"
+    ]
+  },
+  {
+    "url" : "http://www.michaelnielsen.org/ddi/if-correlation-doesnt-imply-causation-then-what-does/",
+    "title" : "Michael Nielson: Correlation v Causation",
+    "tags": [
+      "blog",
+      "analysis",
+      "datascience"
+    ]
+  },
+  {
+    "url" : "http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/",
+    "title" : "Jake VDP: Frequentism v Bayesian in python 4",
+    "tags": [
+      "blog",
+      "analysis",
+      "datascience",
+      "mcmc",
+      "python"
+    ]
+  },
+  {
+    "url" : "http://dan.iel.fm/emcee/current/",
+    "title" : "emcee: mcmc hammer in python",
+    "tags": [
+      "blog",
+      "python",
+      "mcmc",
+      "datascience"
+    ]
+  },
+  {
+    "url" : "https://developers.google.com/web/fundamentals/",
+    "title" : "Google Web Fundamentals",
+    "tags": [
+      "tutorial",
+      "dev"
+    ]
+  },
+  {
+    "url" : "http://learnlayout.com/",
+    "title" : "CSS Fundamentals",
+    "tags": [
+      "tutorial",
+      "dev",
+      "css"
+    ]
+  },
+  {
+    "url" : "http://learn.shayhowe.com/html-css/",
+    "title" : "Learn to code html and css",
+    "tags": [
+      "tutorial",
+      "dev",
+      "css",
+      "html"
+    ]
+  },
+  {
+    "url" : "http://joshdmiller.github.io/ng-boilerplate/#/home",
+    "title" : "Boilerplate for AngularJS",
+    "tags": [
+      "tools",
+      "dev",
+      "angular"
+    ]
+  }  
+]

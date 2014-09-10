@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for link_object in link_objects %}
+      <h4><a href="{{ link_object.url }}">{{link_object.title}}</a></h4>
+      tags: 
+      {% for tag in link_object.tags %}
+        {{tag}}
+      {% endfor %}
+    {% endfor %}
+{% endblock %}

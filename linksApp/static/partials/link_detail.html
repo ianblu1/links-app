@@ -1,0 +1,8 @@
+<h1>{{bookmark.title}}</h1>
+<form class="simple-form">
+  tags: <input type='text' size=75 ng-model='bookmark.tags'/>
+<!--   <button ng-click="update(bookmark)">SAVE</button> -->
+  <button class="btn btn-primary" ng-click="update(bookmark)">SAVE</button>
+</form>
+<br>
+<pre>{{bookmark.tags}}</pre>

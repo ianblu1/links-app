@@ -52,10 +52,13 @@ linksAppControllers.controller('linksListController',
 
 
 linksAppControllers.controller('linkDetailController',
-		['$scope','$routeParams','Bookmark', function($scope, $routeParams, Bookmark){
+		['$scope','$routeParams','$window', 'Bookmark', function($scope, $routeParams, $window, Bookmark){
 			$scope.bookmark = Bookmark.get({slug:$routeParams.slug});
 			$scope.update = function(bookmark){
-				bookmark.$save({slug:$routeParams.slug});
+				bookmark.$save({slug:$routeParams.slug}).then($window.location.href = '/#/links');
+			}
+			$scope.remove = function(bookmark){
+				bookmark.$delete({slug:$routeParams.slug}).then($window.location.href = '/#/links');
 			}
 }]);
 

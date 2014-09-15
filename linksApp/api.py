@@ -3,6 +3,7 @@ from flask import json
 from flask.views import MethodView
 from linksApp.models import Link
 from linksApp import app
+import os
 
 @app.route('/api_test')
 def api_test():
@@ -54,6 +55,18 @@ def api_data():
             return "JSON Message: SUCCESS"
         else:
             return "415 Unsupported Media Type ;)"
+
+@app.route('/data/export', methods = ['GET'])
+def api_export_data():
+    if request.method=='GET':
+        links=Link.objects.all()
+        data=links.to_json()
+        #data=links
+        print(links[1]["slug"])
+        with open('seed_data/data.json', 'w') as outfile:
+            #json.dump(data, outfile, sort_keys = True, indent = 4, ensure_ascii=False)
+            outfile.write(data)
+        return "Success!\n"
 
 #@app.route('/data/<slug>', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
 @app.route('/data/<slug>', methods=['GET', 'POST', 'DELETE'])

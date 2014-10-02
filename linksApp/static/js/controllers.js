@@ -23,7 +23,7 @@ linksAppControllers.controller('addLinkModalController',
 );
 
 linksAppControllers.controller('linksListController', 
-		['$scope', '$modal', 'Bookmark', function($scope, $modal, Bookmark) {
+		['$scope', '$modal', '$window', 'Bookmark', function($scope, $modal, $window, Bookmark) {
 	//$http.get('links/links.json').success(function(data) {
 	//	$scope.links=data;
 	//});
@@ -40,9 +40,10 @@ linksAppControllers.controller('linksListController',
 	      }
 	    });
 	modalInstance.result.then(function (paramFromModal) {
-	    $scope.text = paramFromModal;
+	    
 	    if (paramFromModal=="Link added"){
-	    	$scope.bookmarks=Bookmark.query()
+			$scope.bookmarks=Bookmark.query();
+			$scope.text = paramFromModal;
 	    }
 	});
 	}

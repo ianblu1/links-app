@@ -1,35 +1,17 @@
 from flask import Blueprint, request, redirect, render_template, url_for
 from flask import json
-from flask.views import MethodView
+from flask.ext.login import (current_user, login_required, login_user, logout_user, confirm_login, fresh_login_required)
+from jinja2 import TemplateNotFound
 from linksApp.models import Link
 from linksApp import app
-import os
+import os, datetime
 
-@app.route('/api_test')
-def api_test():
-    if 'name' in request.args:
-        return 'Hello ' + request.args['name'] + '\n'
-    else:
-        return('Don\'t know who you are.\n')
-    
-@app.route('/echo', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
-def api_echo():
-    if request.method == 'GET':
-        return "ECHO: GET\n"
+from libs.User import User
 
-    elif request.method == 'POST':
-        return "ECHO: POST\n"
+api_app = Blueprint('api_app', __name__, template_folder='templates')
 
-    elif request.method == 'PATCH':
-        return "ECHO: PACTH\n"
-
-    elif request.method == 'PUT':
-        return "ECHO: PUT\n"
-
-    elif request.method == 'DELETE':
-        return "ECHO: DELETE"
-    
 @app.route('/data/bookmarks', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
+@login_required
 def api_data():
     if request.method=='GET':
         links=Link.objects.all()
@@ -57,6 +39,7 @@ def api_data():
             return "415 Unsupported Media Type ;)"
 
 @app.route('/data/export', methods = ['GET'])
+@login_required
 def api_export_data():
     if request.method=='GET':
         links=Link.objects.all()
@@ -70,6 +53,7 @@ def api_export_data():
 
 #@app.route('/data/<slug>', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
 @app.route('/data/<slug>', methods=['GET', 'POST', 'DELETE'])
+@login_required
 def api_bookmark(slug):
     #print(slug)
     if request.method=='GET':
@@ -96,6 +80,7 @@ def api_bookmark(slug):
         return 'Success\n'
 
 @app.route('/data', methods=['POST'])
+@login_required
 def api_addItem():
     if request.method=='POST':                
         print("Got Here")

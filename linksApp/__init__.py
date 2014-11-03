@@ -6,9 +6,10 @@ from flask.ext.bcrypt import Bcrypt
 
 
 app = Flask(__name__)
+
 app.config["MONGODB_SETTINGS"] = {'DB': "links_app"}
 app.config["SECRET_KEY"] = "changeme"
-
+app.config["DEBUG"] = True
 app.url_map.strict_slashes = False
 
 db = MongoEngine(app)

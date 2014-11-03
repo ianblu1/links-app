@@ -15,6 +15,8 @@ api_app = Blueprint('api_app', __name__, template_folder='templates')
 def api_data():
     if request.method=='GET':
         links=Link.objects.all()
+        links=Link.objects(user=current_user.get_mongo_doc())
+        print current_user.get_mongo_doc().email
         data=links.to_json()
         return(data)
     
@@ -58,14 +60,14 @@ def api_bookmark(slug):
     #print(slug)
     if request.method=='GET':
         try:
-            link=Link.objects.get(slug=slug)
+            link=Link.objects.get(slug=slug,user=current_user.get_mongo_doc())
             data=link.to_json()
             return data
         except:
             return "no such item\n"
         
     if request.method=='POST':
-        link=Link.objects.get(slug=slug)
+        link=Link.objects.get(slug=slug,user=current_user.get_mongo_doc())
         data=request.json
         #tags=[]
         #for tag in data['tags'].split(','):
@@ -75,7 +77,7 @@ def api_bookmark(slug):
         link.save()  
         
     if request.method=='DELETE':
-        link=Link.objects.get(slug=slug)
+        link=Link.objects.get(slug=slug,user=current_user.get_mongo_doc())
         link.delete()
         return 'Success\n'
 
@@ -88,7 +90,7 @@ def api_addItem():
         print(data)
         slug=data['title'].replace(' ', '-').replace(':', '')
         print(slug)
-        check=Link.objects(slug=slug)
+        check=Link.objects(slug=slug,user=current_user.get_mongo_doc())
         print(len(check))
         if len(check)>0:
             return "link already exists\n"
@@ -98,5 +100,6 @@ def api_addItem():
             link.title=data['title']
             link.url=data['url']
             link.tags=[tag for tag in data['tags'].split(',')]
+            link.user = current_user.get_mongo_doc()
             link.save()
             return 'Success\n'

@@ -2,6 +2,12 @@ import datetime
 from flask import url_for
 from linksApp import db
 
+class User(db.Document):
+	email = db.EmailField(unique=True)
+	password = db.StringField(default=True)
+	active = db.BooleanField(default=True)
+	isAdmin = db.BooleanField(default=False)
+	timestamp = db.DateTimeField(default=datetime.datetime.now())
 
 class Link(db.Document):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
@@ -10,6 +16,7 @@ class Link(db.Document):
     #description = db.StringField(required=False)
     url = db.URLField(required=True)
     tags = db.ListField(db.StringField(max_length=30))
+    user = db.ReferenceField(User)
 
     def get_absolute_url(self):
         return url_for('post', kwargs={"slug": self.slug})
@@ -22,10 +29,4 @@ class Link(db.Document):
         'indexes': ['-created_at', 'slug'],
         'ordering': ['-created_at']
     }
-
-class User(db.Document):
-	email = db.EmailField(unique=True)
-	password = db.StringField(default=True)
-	active = db.BooleanField(default=True)
-	isAdmin = db.BooleanField(default=False)
-	timestamp = db.DateTimeField(default=datetime.datetime.now())
+    

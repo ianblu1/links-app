@@ -9,6 +9,10 @@ from libs.User import User
 
 auth_flask_login = Blueprint('auth_flask_login', __name__, template_folder='templates')
 
+@auth_flask_login.route("/")
+def home():
+    return redirect("/index")
+
 @auth_flask_login.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST" and "email" in request.form:
@@ -26,7 +30,7 @@ def login():
             print "got here!"
             if login_user(user, remember=remember):
                 flash("Logged in!")
-                return redirect('/')
+                return redirect('/index')
             else:
                 flash("unable to log you in")
 
@@ -59,7 +63,7 @@ def register():
             user.save()
             if login_user(user, remember="no"):
                 flash("Logged in!")
-                return redirect('/')
+                return redirect('/index')
             else:
                 flash("unable to log you in")
 

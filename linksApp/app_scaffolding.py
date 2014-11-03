@@ -12,9 +12,13 @@ app_scaffolding = Blueprint('app_scaffolding', __name__, template_folder='templa
 def locked():
     return render_template('links/locked.html')
     
-@app.route('/')
+@app.route('/index')
+@login_required
 def hello():
+    #if current_user:
     return render_template('links/hello.html')
+    #else:
+    #    return redirect('/login')
     
 @app.route('/app_loc')
 @login_required

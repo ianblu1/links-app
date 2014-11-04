@@ -10,7 +10,7 @@ from libs.User import User
 
 api_app = Blueprint('api_app', __name__, template_folder='templates')
 
-@app.route('/data/bookmarks', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
+@api_app.route('/data/bookmarks', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
 @login_required
 def api_data():
     if request.method=='GET':
@@ -40,7 +40,7 @@ def api_data():
         else:
             return "415 Unsupported Media Type ;)"
 
-@app.route('/data/export', methods = ['GET'])
+@api_app.route('/data/export', methods = ['GET'])
 @login_required
 def api_export_data():
     if request.method=='GET':
@@ -54,7 +54,7 @@ def api_export_data():
         return "Success!\n"
 
 #@app.route('/data/<slug>', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
-@app.route('/data/<slug>', methods=['GET', 'POST', 'DELETE'])
+@api_app.route('/data/<slug>', methods=['GET', 'POST', 'DELETE'])
 @login_required
 def api_bookmark(slug):
     #print(slug)
@@ -81,7 +81,7 @@ def api_bookmark(slug):
         link.delete()
         return 'Success\n'
 
-@app.route('/data', methods=['POST'])
+@api_app.route('/data', methods=['POST'])
 @login_required
 def api_addItem():
     if request.method=='POST':                

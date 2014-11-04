@@ -7,12 +7,12 @@ from flask.ext.login import (current_user, login_required, login_user, logout_us
 
 app_scaffolding = Blueprint('app_scaffolding', __name__, template_folder='templates')
 
-@app.route('/locked')
+@app_scaffolding.route('/locked')
 @login_required
 def locked():
     return render_template('links/locked.html')
     
-@app.route('/index')
+@app_scaffolding.route('/index')
 @login_required
 def hello():
     #if current_user:
@@ -20,7 +20,7 @@ def hello():
     #else:
     #    return redirect('/login')
     
-@app.route('/app_loc')
+@app_scaffolding.route('/app_loc')
 @login_required
 def app_loc():
     return render_template('links/app_loc.html')  

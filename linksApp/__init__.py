@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, make_response
 from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
+from flask_sslify import SSLify
 from flask.ext.login import LoginManager
 from flask.ext.bcrypt import Bcrypt
 import os
@@ -11,7 +12,7 @@ app = Flask(__name__)
 #app.config["MONGODB_SETTINGS"] = {'DB': "links_app"}
 #app.config["SECRET_KEY"] = "changeme"
 if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
-    #sslify = SSLify(app)
+    sslify = SSLify(app)
     app.config.from_object('config.ProductionConfig')
 else:
     app.config.from_object('config.DevelopmentConfig')

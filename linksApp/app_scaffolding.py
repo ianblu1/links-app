@@ -16,7 +16,8 @@ def locked():
 @login_required
 def hello():
     #if current_user:
-    return render_template('links/hello.html')
+    #return render_template('links/hello.html')
+    return render_template('links/app_loc.html')
     #else:
     #    return redirect('/login')
     

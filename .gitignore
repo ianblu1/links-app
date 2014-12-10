@@ -4,3 +4,7 @@
 .pydevproject
 linksAppEnv/
 venv/
+server.csr
+server.key
+server.pass.key
+www_hyperlinks_io.crt
